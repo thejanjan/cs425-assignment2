@@ -1,0 +1,41 @@
+CIS 432 - Introduction to Computer Networks
+Programming Assignment 02 - Undergraduate and Graduate Students
+
+Please fill this form and send it together with your program.
+Put all the source files, makefile and this text file into a folder (name: your last name, all in lowercase letters), compress it into a tarball (i.e zip), and send using canvas submission page.
+Please include any special instructions for compiling and running your program on ix.
+
+Student Names: Micah Nichols
+Student IDs: 951805755
+
+Answer the questions by selecting one of the given options. You may add additional information if you wish to.
+
+- Does the server broadcast Joins correctly when a user requests a Join? yes/no
+yes
+ 
+- Does the server broadcast Joins correctly when receiving a Join from another server? yes/no 
+yes
+
+- Does the server generate unique identifiers correctly? yes/no 
+yes
+
+- Does the server renew Joins once per minute? yes/no
+yes
+  
+- Does the server remove Joins older than two minutes? yes/no
+yes
+ 
+- Does the server reply with a Leave message when it cannot forward a Say message? yes/no 
+yes
+
+- Does the server reply with a Leave message when it receives a duplicate Say message? yes/no 
+yes
+
+- Does the server avoid sending inappropriate Join, Leave, or Say messages? yes/no   
+yes
+
+- Does the server have all the functionality from programming assignment #1 when working in isolation? yes/no 
+yes
+
+- Does the client have all the functionality from programming assignment #1? yes/no 
+ yes
