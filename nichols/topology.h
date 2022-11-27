@@ -295,7 +295,7 @@ static bool topology_s2s_say_send(const Topology *tp, struct sockaddr_in *server
 
     // Forward it to EVERY SERVER with the channel.
     bool hasSent = false;
-    printf("S2S SAY - Forwarding message..\n");
+    // printf("S2S SAY - Forwarding message..\n");
 	TopologyData *tpd = (TopologyData *)tp->self;
 	for (int i = 0; i < tpd->size; i++) {
 		// Print what we are sending to this server.
@@ -309,13 +309,13 @@ static bool topology_s2s_say_send(const Topology *tp, struct sockaddr_in *server
 
 		// Is this server sendable?
 		if (!(sd->channelList->has_channel(sd->channelList, channelName))) {
-			printf("S2S SAY - Attempted to send message to a server, but they were not present in routing table\n");
+			// printf("S2S SAY - Attempted to send message to a server, but they were not present in routing table\n");
 			continue;
 		}
 
 		// OK, begin print and start sending!
 		print_addresses(serverAddr, sd->address);
-        printf("send S2S Say %s %s \"%s\"\n", username, channelName, text);
+        // printf("send S2S Say %s %s \"%s\"\n", username, channelName, text);
         hasSent = true;
 
         // Send our datagram over.
@@ -386,7 +386,7 @@ static bool topology_s2s_say_recv(const Topology *tp, struct sockaddr_in *server
 		// If we have, then this message is a duplicate -- we can break
 		// off from the tree from this address by sending that server a leave call.
 		tp->s2s_leave_send(tp, serverAddr, address, channelName);
-		printf("Declining S2S Say Recv - duplicate\n");
+		// printf("Declining S2S Say Recv - duplicate\n");
 		return false;
 	}
 
@@ -394,13 +394,13 @@ static bool topology_s2s_say_recv(const Topology *tp, struct sockaddr_in *server
     struct Channel *channel = get_channel(channelName, false);
     if (channel == NULL) {
     	// channel does not even exist for us, ignore the call
-    	printf("Declining S2S Say Recv - channel does not exist\n");
+    	// printf("Declining S2S Say Recv - channel does not exist\n");
     	return false;
     }
 
     // store and forward (get it??)
     tp->id_store(tp, id);
-    printf("Accepting S2S Say Recv - sending forward\n");
+    // printf("Accepting S2S Say Recv - sending forward\n");
     bool hasSent = tp->s2s_say_send(tp, serverAddr, address, username, channelName, text, id);
     if ((hasSent == false) && (channel->userCount == 0)) {
     	// We couldn't send it to anyone, so reply with a leave.
