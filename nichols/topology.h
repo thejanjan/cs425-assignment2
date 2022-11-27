@@ -315,7 +315,7 @@ static bool topology_s2s_say_send(const Topology *tp, struct sockaddr_in *server
 
 		// OK, begin print and start sending!
 		print_addresses(serverAddr, sd->address);
-        // printf("send S2S Say %s %s \"%s\"\n", username, channelName, text);
+        printf("send S2S Say %s %s \"%s\"\n", username, channelName, text);
         hasSent = true;
 
         // Send our datagram over.
